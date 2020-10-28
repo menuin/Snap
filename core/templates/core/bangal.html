@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+
+    <body>
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            신비아파트</h1>
+        <br>
+        <h2>2층</h2>
+
+    
+        <img src="/static/image/sadman.jpg" width='200' height='250'><img src="/static/image/가루.png" width='200' height='100'>
+        <br>
+        <a href="{% url 'moving_in' %}">집내놓기</a>
+        <br>
+        
+
+        {% block content %}
+        {% endblock %}
+        <br><br>
+        <h2>1층</h2><img src="/static/image/happythanos.jpg" width='300' height='250'>
+        <br>
+        
+    </body>
+</html>
