@@ -1,29 +1,43 @@
 from django.shortcuts import render, get_object_or_404
-from .forms import NameForm
+from .forms import MoveForm
 from core.models import Couple
 from django.shortcuts import redirect
+from django.utils import timezone
 
 def home(request):
-    return render(request, 'core/home.html')
+    couples=Couple.objects.all()
+    return render(request, 'core/home.html',{'couples':couples})
+
+def couple_main(request,pk):
+    couple=get_object_or_404(Couple,pk=pk)
+    return render(request,'core/detail',{'couple':couple})
 
 def moving_in(request):
-    form=NameForm()
-    """ if request.method=="POST":
-        form=NameForm(request.POST)
+    if request.method=='POST':
+        form=MoveForm(request.POST, request.FILES)
         if form.is_valid():
             couple=form.save(commit=False)
+            couple.created_date=timezone.now()
             couple.save()
-            return redirect('home')
-        else:
-            form=NameForm()
+        return redirect('home')
     else:
-        form=NameForm() """
+        form=MoveForm()
     return render(request,'core/movingin.html',{'form':form})
 
+def love_love(request,pk):
+    couple=get_object_or_404(Couple,pk=pk)
+    couple.love+=1
+    couple.save()
+    return render(request,'core/detail.html',{'couple':couple})
 
+def snap(request,pk):
+    couple=get_object_or_404(Couple,pk=pk)
+    return render (request,'core/snap.html',{'couple':couple})
 
-
-def 반갈죽(request):
-    return render(request, 'core/bangal.html',)
+def moving_out(request,pk):
+    couple=get_object_or_404(Couple,pk=pk)
+    couple.delete()
+    couples=Couple.objects.all()
+    return render(request,'core/home.html',{'couples':couples})
 
 # Create your views here.

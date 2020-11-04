@@ -1,24 +1,19 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 
 class Couple(models.Model):
     name=models.CharField(max_length=20)
-    yeombyung=0
+    love=models.IntegerField(default=0)
+    created_date=models.DateTimeField(
+        default=timezone.now
+    )
+    photo=models.ImageField(blank=True, null=True, upload_to="core/images")
 
     def __str__(self):
         return f"{self.name}"
         
-    def lovelove(self):
-        self.yeombyung+=1
-        self.save()
 
-
-""" class Thanos(models.Model):
-    patience=10
-
-    def snap(self):
-        self.patience=10
-        self.save() """
 
 # Create your models here.

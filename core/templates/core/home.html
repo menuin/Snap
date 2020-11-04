@@ -3,6 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Title</title>
+        <style>
+            div{
+                float:left;
+            }
+        </style>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
@@ -11,18 +16,26 @@
         <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             신비아파트</h1>
         <br>
-        <h2>2층</h2>
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2층</h2>
 
     
         <a href="{% url 'moving_in' %}">입주하기</a>
         <br><br>
-        <img src="/static/image/couple.png" width='300' height='250'>
-        <a class="btn btn-default" width='500'>염병하기</a>
+        
+        {% for couple in couples %}
+            <div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'couple_main' pk=couple.pk %}">{{couple.name}} 호</a></p><br>
+                {% if couple.photo %}
+                <img src="{{couple.photo.url}}" alt="{{couple.name}}" width='300' height='250'>
+                {% endif %}
+            </div>
+        {% endfor %}
+        
 
         {% block content %}
         {% endblock %}
-        <br><br>
-        <h2>1층</h2><img src="/static/image/angrythanos.png" width='300' height='250'>
-        <a class="btn btn-default" href="{% url 'bangal' %}" width='500'>반갈죽</a>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1층</h2><img src="/media/core/images/happythanos.jpg" width='300' height='250'>
+        
     </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+
+    <body>
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2층</h2>
+        {% if couple.photo %}
+            <img src="{{couple.photo.url}}" alt="{{couple.name}}" width='300' height='250'>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'love_love' pk=couple.pk %}" width='500'>염병하기</a>
+        <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>방빼기</a><br>
+        
+        <p>라부라부게이지 : 
+            {% for i in "x"|rjust:couple.love %}
+                ♥
+            {% endfor %}
+        </p>
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1층</h2>
+        
+        {% if couple.love == 10 %}
+            <img src="/media/core/images/angrythanos.jpg" width='300' height='250'>
+            <a class="btn btn-default" href="{% url 'snap' pk=couple.pk %}" width='500'>반갈죽</a>
+        
+
+        {% elif couple.love > 4 and 10 > couple.love %}
+            <img src="/media/core/images/annoyingthanos2.jpg" width='300' height='250'>
+        
+        
+        {% else %}
+            <img src="/media/core/images/happythanos.jpg" width='300' height='250'>
+        {% endif %}
+    </body>
+</html>

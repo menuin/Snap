@@ -14,16 +14,17 @@
         <h2>2층</h2>
 
     
-        <img src="/static/image/sadman.jpg" width='200' height='250'><img src="/static/image/가루.png" width='200' height='100'>
+        <img src="/media/core/images/sadman.jpg" width='200' height='250'><img src="/media/core/images/가루.png" width='200' height='100'>
         <br>
-        <a href="{% url 'moving_in' %}">집내놓기</a>
+        <!-- <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>방빼기</a><br> -->
+        <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>방빼기</a><br>
         <br>
         
 
         {% block content %}
         {% endblock %}
         <br><br>
-        <h2>1층</h2><img src="/static/image/happythanos.jpg" width='300' height='250'>
+        <h2>1층</h2><img src="/media/core/images/happythanos.jpg" width='300' height='250'>
         <br>
         
     </body>
