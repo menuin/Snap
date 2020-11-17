@@ -12,12 +12,19 @@
             신비아파트</h1>
         <br>
         <h2>2층</h2>
+        
+        {% if couple.choice == 1 %}
+        <img src="/media/core/images/sadman.jpg" width='200' height='200'>
+        <img src="/media/core/images/가루.jpg" width='150' height='80'>
+        
+        {% endif %}
+        {% if couple.choice == 0 %}
+        <img src="/media/core/images/가루.jpg" width='150' height='80'>
+        <img src="/media/core/images/sadman2.jpg" width='200' height='200'>
+        {% endif %}
 
-    
-        <img src="/media/core/images/sadman.jpg" width='200' height='250'><img src="/media/core/images/가루.png" width='200' height='100'>
-        <br>
-        <!-- <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>방빼기</a><br> -->
-        <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>방빼기</a><br>
+        <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>증거인멸하기</a>
+        <a class="btn btn-default" href="{% url 'home' %}" width='500'>신고하기</a><br>
         <br>
         
 

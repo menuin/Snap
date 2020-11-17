@@ -10,6 +10,7 @@ urlpatterns=[
     path('<int:pk>/detail',views.love_love,name='love_love'),
     path('<int:pk>/detail',views.couple_main,name='couple_main'),
     path('<int:pk>/movingout',views.moving_out,name='moving_out'),
+    path('<int:pk>/suspicious/',views.suspect,name='suspect'),
 
 ]
 

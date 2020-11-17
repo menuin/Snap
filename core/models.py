@@ -6,6 +6,8 @@ from django.utils import timezone
 class Couple(models.Model):
     name=models.CharField(max_length=20)
     love=models.IntegerField(default=0)
+    choice=models.IntegerField(default=0)
+    snapped=models.IntegerField(default=0)
     created_date=models.DateTimeField(
         default=timezone.now
     )
@@ -13,7 +15,7 @@ class Couple(models.Model):
 
     def __str__(self):
         return f"{self.name}"
-        
+
 
 
 # Create your models here.

@@ -6,3 +6,4 @@ class MoveForm(forms.ModelForm):
     class Meta:
         model=Couple
         fields=['name','photo']
+

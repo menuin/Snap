@@ -10,19 +10,32 @@
     <body>
         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2층</h2>
         {% if couple.photo %}
+        {% if couple.snapped == 0 %}
             <img src="{{couple.photo.url}}" alt="{{couple.name}}" width='300' height='250'>
+            <a class="btn btn-default" href="{% url 'love_love' pk=couple.pk %}" width='500'>염병하기</a>
+            <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>방빼기</a><br>
+
+            <p>라부라부게이지 : 
+                {% for i in "x"|rjust:couple.love %}
+                    ♥
+                {% endfor %}
+            </p>
+            
+
         {% endif %}
-        <a class="btn btn-default" href="{% url 'love_love' pk=couple.pk %}" width='500'>염병하기</a>
-        <a class="btn btn-default" href="{% url 'moving_out' pk=couple.pk %}" width='500'>방빼기</a><br>
+        {% if couple.snapped == 1 %}
+        <img src="/media/core/images/investigation.jpg" alt="{{couple.name}}" width='300' height='250'>
+        <img src="/media/core/images/코난.jpg" alt="{{couple.name}}" width='300' height='250'>
+        <a class="btn btn-default" href="{% url 'suspect' pk=couple.pk %}" width='500'>범인은 이안에 있어!</a>
+        {% endif %}
+        {% endif %}
         
-        <p>라부라부게이지 : 
-            {% for i in "x"|rjust:couple.love %}
-                ♥
-            {% endfor %}
-        </p>
+        <br>
         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1층</h2>
+        <br>
+
         
-        {% if couple.love == 10 %}
+        {% if couple.love >= 10 %}
             <img src="/media/core/images/angrythanos.jpg" width='300' height='250'>
             <a class="btn btn-default" href="{% url 'snap' pk=couple.pk %}" width='500'>반갈죽</a>
         
