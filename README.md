@@ -1,7 +1,5 @@
-# Snap
+# 반갈죽 (신비아파트, snap)
 <img src="https://user-images.githubusercontent.com/63971484/102992355-69405c00-455e-11eb-950c-d1d4fe7194bf.png"></img>
-
-반갈죽 (신비아파트, snap)
 
 ​
 
